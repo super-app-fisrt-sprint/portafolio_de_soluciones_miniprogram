@@ -1,0 +1,17 @@
+<view>
+  <view class="modal-container">
+    <modal
+      title="{{title}}"
+      content="{{content}}"
+      visible="{{visible}}"
+      onClose="handleClose"
+      primaryButtonText="{{primaryButtonText}}"
+      onPrimaryButtonTap="onAcceptButtonTapOne"
+      class="modal-check"
+    >
+      <view class="container-modal-one" slot="header">
+        <icon class="icon-one" type="CheckOutline" />
+      </view>
+    </modal>
+  </view>
+</view>
