@@ -1,9 +1,14 @@
 {
   "subPackageBuildType": "shared",
   "pages": [
-    "pages/index/index"
+    "pages/soluciones/soluciones",
+    "pages/solucion/solucion",
+    "pages/web-view/web-view"
   ],
   "window": {
-    "defaultTitle": "My App"
+    "defaultTitle": "Mi Claro",
+    "titleBarColor": "#121D24",
+    "gestureBack": "YES",
+    "showTitleLoading": "YES"
   }
 }
