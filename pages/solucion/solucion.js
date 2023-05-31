@@ -110,10 +110,10 @@ Page({
   onRedirect(e){
     my.navigateTo({
       url: "/pages/adquirir-producto/adquirir-producto"
-    })
+    });
   },
   onWebView(e){
-    const url = e.currentTarget.dataset.item;
+    const url = e.currentTarget.dataset.set;
     my.navigateTo({
       url: `/pages/web-view/web-view?url=${url}`
     });
