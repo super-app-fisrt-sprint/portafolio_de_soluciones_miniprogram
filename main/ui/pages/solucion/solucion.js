@@ -22,8 +22,8 @@ Page({
     backgroundColor: false
   },
   onLoad(query) {
-    this.setInformation(query.data, query.id);
-    this.onButtonStatusChange();
+    // this.setInformation(query.data, query.id);
+    // this.onButtonStatusChange();
   },
   setInformation(data, id) {
     my.showLoading({content: "Loading Data..."});

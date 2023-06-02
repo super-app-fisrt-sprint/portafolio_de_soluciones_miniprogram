@@ -1,0 +1,21 @@
+<view class="container">
+  <header-image 
+    image="/main/ui/assets/logo-claro-blanco.svg" 
+    style="height:{{titleBarHeight + statusBarHeight + 10}}px" 
+  />
+
+  <view class="container-btns">
+    <generic-button 
+      onTap="onMakePhoneCall" 
+      stateImg="{{true}}" 
+      imgSrc="/main/ui/assets/icons/phone_msg.svg"
+    >
+      Llámanos
+    </generic-button>
+    <view class="style-text size-text">O déjanos tus datos</view>
+  </view>
+
+  <view onTap="onWebView" class="container-web-view">
+    <image class="image-clic" mode="widthFix" src="/main/ui/assets/form.png" />
+  </view>
+</view>

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "header-image": "/main/ui/components/headerImage/headerImage",
+    "loading-component": "/main/ui/components/loading-component/loading-component"
+  },
+  "styleIsolation": "apply-shared"
+}

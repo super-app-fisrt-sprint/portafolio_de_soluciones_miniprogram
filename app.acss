@@ -6,3 +6,83 @@ page {
 :root {
   --claro-color: #E52A1B;
 }
+
+/* Colors */
+
+.gray-10 {
+  color: #0a0a0a;
+}
+
+.gray-20 {
+  color: #1a1a1a;
+}
+
+.gray-30 {
+  color: #2a2a2a;
+}
+
+.gray-40 {
+  color: #3a3a3a;
+}
+
+.gray-50 {
+  color: #404040;
+}
+
+/* Fonts */
+
+.font-w-200 {
+  font-weight: 200;
+}
+
+.font-w-300 {
+  font-weight: 300;
+}
+
+.font-w-400 {
+  font-weight: 400;
+}
+
+.font-w-500 {
+  font-weight: 500;
+}
+
+.font-w-600 {
+  font-weight: 600;
+}
+
+.font-w-700 {
+  font-weight: 700;
+}
+
+.font-w-800 {
+  font-weight: 800;
+}
+
+.font-w-900 {
+  font-weight: 900;
+}
+
+.h1-style {
+  font-size: 40rpx;
+}
+
+.h2-style {
+  font-size: 36rpx;
+}
+
+.h3-style {
+  font-size: 32rpx;
+}
+
+.h4-style {
+  font-size: 28rpx;
+}
+
+.h5-style {
+  font-size: 24rpx;
+}
+
+.h6-style {
+  font-size: 20rpx;
+}

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "hiperlink-button": "/main/ui/components/hyperlink-button/hyperlink-button",
+    "generic-button": "/main/ui/components/generic-button/generic-button"
+  },
+  "styleIsolation": "apply-shared",
+  "showTitleLoading": "YES"
+}
