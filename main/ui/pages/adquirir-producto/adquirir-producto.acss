@@ -3,15 +3,15 @@
 }
 
 .container {
+  height: 100vh;
   display: flex;
   flex-flow: column wrap;
   align-items: center;
+  padding: 30rpx;
 }
 
 .container-btns {
-  width: 90%;
   height: 20%;
-  padding: 20rpx;
   display: flex;
   flex-flow: column wrap;
   align-items: center;
@@ -20,6 +20,7 @@
 }
 
 .container-web-view {
+  flex-flow: 1;
   cursor: pointer;
 }
 

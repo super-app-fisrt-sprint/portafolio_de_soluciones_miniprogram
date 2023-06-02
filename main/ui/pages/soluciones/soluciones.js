@@ -18,9 +18,6 @@ Page({
     showLoading: false
   },
   onLoad() {
-    my.setNavigationBar({
-
-    });
     const {
       titleBarHeight,
       statusBarHeight,

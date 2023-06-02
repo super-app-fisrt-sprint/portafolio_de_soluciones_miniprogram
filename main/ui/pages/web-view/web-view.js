@@ -6,5 +6,5 @@ Page({
     this.setData({
       url: query.url
     });
-  },
+  }
 });
