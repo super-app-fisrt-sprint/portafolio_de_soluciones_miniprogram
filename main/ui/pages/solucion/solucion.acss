@@ -70,16 +70,17 @@
 }
 
 .video-container {
-  flex-shrink: 1;
+  flex: 1;
   width: 100%;
 }
 
 .video-container video {
   width: 100%;
+  height: 100%;
 }
 
 .container-solution {
-  flex-grow: 1;
+  flex: 1;
   width: 100%;
   display: flex;
   flex-flow: column nowrap;

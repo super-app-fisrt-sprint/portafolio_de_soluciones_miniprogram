@@ -8,19 +8,20 @@ describe("Set de pruebas para empresas videos", () => {
     const empresasVideoRepository = new EmpresasVideosRepository();
     const mockResponse = {
       data: {
+        error: 0,
         response: [{
           id: 1,
-          name: "video1"
+          name: "Video 1"
         }, {
           id: 2,
-          name: "video2"
+          name: "Video 2"
         }]
       }
     };
     const spy = jest.spyOn(empresasVideoRepository, 'getEmpresasVideosRemote').mockResolvedValue(mockResponse);
-    const result = await spy();
-    const expected = new RequestGetEmpresasVideos(mockResponse.data.response).data;
-    expect(result.data.response).toEqual(expected);
+    const result = await empresasVideosViewModel.requestGetEmpresasVideos();
+    expect(spy).toHaveBeenCalled();
+    expect(result).toEqual(new RequestGetEmpresasVideos(mockResponse.data.response));
   });
 
   test("los datos de la respuesta de prueba tienen un código de error distinto de 0", async () => {

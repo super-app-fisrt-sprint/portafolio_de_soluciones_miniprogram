@@ -310,7 +310,7 @@
             stateImg={{true}}
             imgSrc={{link.icoBtn}}
             iconArrowSrc="/main/ui/assets/icons/navigateNextBlue.svg"
-            style="font-weight: bold; "
+            style="font-weight: bold"
             onTap="onHyperLink"
           >
             {{link.nombre}}
