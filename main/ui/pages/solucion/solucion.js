@@ -1,5 +1,8 @@
 Page({
   data: {
+    linkSolutions: [],
+    dataSolutions: [],
+    currentData: 0,
     video: {
       src: 'https://files.catbox.moe/odue40.mp4',
       showAllControls: true,
@@ -8,114 +11,99 @@ Page({
       showFullScreenButton: true,
       isLooping: false,
       muteWhenPlaying: false,
-      initTime : 0 , 
+      initTime: 0,
       objectFit: 'contains',
       autoPlay: false,
       directionWhenFullScreen: 90,
       mobilenetHintType: 2
     },
-    dataSolutions: [],
-    positionData: 1,
-    stateBefore: true,
-    stateNext: true,
-    scrollAnimation: false,
-    backgroundColor: false
+    titleBarHeight: 0,
+    statusBarHeight: 0,
+    scrollVisible: false
   },
   onLoad(query) {
-    // this.setInformation(query.data, query.id);
-    // this.onButtonStatusChange();
-  },
-  setInformation(data, id) {
-    my.showLoading({content: "Loading Data..."});
+    const {
+      titleBarHeight,
+      statusBarHeight,
+    } = my.getSystemInfoSync();
     this.setData({
-      dataSolutions: JSON.parse(data),
-      positionData: id
+      titleBarHeight,
+      statusBarHeight,
+    });
+    this.setInformation(query.solutions, query.idSolution);
+  },
+  setInformation(solutions, idSolution) {
+    let solutionsMap = JSON.parse(solutions);
+    my.showLoading({
+      content: "Loading Data..."
+    });
+    solutionsMap.forEach(solution => {
+      solution['title'] = solution.nombre;
+      delete solution.nombre;
+    });
+    this.setData({
+      dataSolutions: solutionsMap,
+      currentData: Number(idSolution)
     });
     my.hideLoading({});
   },
-  onBefore: function (e) {
-    const data = this.data.dataSolutions;
-    const actual = this.data.positionData;
-    const index = data.findIndex(element => element.idVideo == actual);
-    if (index !== -1 && index > 0) {
-      const prevId = data[index - 1].idVideo;
-      my.setNavigationBar({
-        title: data[index - 1].nombre
-      });
-      const stateBefore = index == 1 ? false : true;
-      this.setData({
-        positionData: prevId,
-        stateBefore: stateBefore,
-        stateNext: true,
-        scrollAnimation: true
-      });
-    }
-  },
-  onNext: function (e) {
-    const data = this.data.dataSolutions;
-    const actual = this.data.positionData;
-    const index = data.findIndex(element => element.idVideo == actual);
-    if (index !== -1 && index < data.length - 1) {
-      const nextId = data[index + 1].idVideo;
-      my.setNavigationBar({
-        title: data[index + 1].nombre
-      });
-      const stateNext = (index + 1) == data.length - 1 ? false : true;
-      this.setData({
-        positionData: nextId,
-        stateNext: stateNext,
-        stateBefore: true,
-        scrollAnimation: true
-      });
-    }
-  },
-  onButtonStatusChange() {
-    const data = this.data.dataSolutions;
-    const actual = this.data.positionData;
-    const index = data.findIndex(element => element.idVideo == actual);
-    my.setNavigationBar({
-       title: data[index].nombre
-    });
-    if (index == 0) {
-      this.setData({
-        stateBefore: false,
-        stateNext: true
-      });
-    }
-    if (index == data.length - 1) {
-      this.setData({
-        stateNext: false,
-        stateBefore: true
-      });
-    }
-  },
-  onPlay(e){
+  onPlay(e) {
     this.setData({
       backgroundColor: true
     });
   },
-  onPause(e){
+  onPause(e) {
     this.setData({
       backgroundColor: false
     });
   },
-  onEnded(e){
+  onEnded(e) {
     this.setData({
       backgroundColor: false
     });
   },
-  onError(e){
+  onError(e) {
     console.log(e);
   },
-  onRedirect(e){
+  onRedirect(e) {
     my.navigateTo({
       url: "/pages/adquirir-producto/adquirir-producto"
     });
   },
-  onWebView(e){
+  onWebView(e) {
     const url = e.currentTarget.dataset.set;
     my.navigateTo({
       url: `/pages/web-view/web-view?url=${url}`
+    });
+  },
+  onSwipeChange(e) {
+    this.setData({
+      currentData: e.detail.current
+    });
+  },
+  onChangeTab(current) {
+    this.setData({
+      currentData: current
+    });
+  },
+  handleShowPopup() {
+    let data = this.data.dataSolutions;
+    let index = this.data.currentData;
+    let solution = data[index].link;
+    this.setData({
+      scrollVisible: true,
+      linkSolutions: solution
+    });
+  },
+  handlePopupClose() {
+    this.setData({
+      scrollVisible: false
+    });
+  },
+  onHyperLink(e){
+    let link = e.currentTarget.dataset.set.valor
+    my.navigateTo({
+      url: `/main/ui/pages/web-view/web-view?url=${link}`
     });
   }
 });

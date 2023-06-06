@@ -1,13 +1,13 @@
 const getEmpresasVideos = require('../source/EmpresasVideosRemote');
 const APIs = require('../../../config/remote/APIs');
 
-module.exports = class getEmpresasVideosDataSourceRemote {
+module.exports = class GetEmpresasVideosDataSourceRemote {
   static instance;
   constructor() {
-    if(getEmpresasVideosDataSourceRemote.instance){
-      return getEmpresasVideosDataSourceRemote.instance;
+    if(GetEmpresasVideosDataSourceRemote.instance){
+      return GetEmpresasVideosDataSourceRemote.instance;
     }else{
-      getEmpresasVideosDataSourceRemote.instance = this;
+      GetEmpresasVideosDataSourceRemote.instance = this;
     }
   }
   async getEmpresasVideos(){

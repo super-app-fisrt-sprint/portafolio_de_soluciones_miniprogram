@@ -12,6 +12,7 @@
 
 .container-btns {
   height: 20%;
+  width: 100%;
   display: flex;
   flex-flow: column wrap;
   align-items: center;
@@ -20,8 +21,13 @@
 }
 
 .container-web-view {
-  flex-flow: 1;
+  height: 80%;
   cursor: pointer;
+}
+
+.container-web-view image {
+  height: 100%;
+  width: auto;
 }
 
 .container-web-view:hover {

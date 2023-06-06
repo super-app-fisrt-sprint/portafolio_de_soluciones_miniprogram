@@ -12,11 +12,11 @@ async function requestGetEmpresasVideos() {
     ) {
       return new RequestGetEmpresasVideos(res.data.response);
     } else {
-      return new RequestGetEmpresasVideos(res.data.response);
+      return false;
     }
   } catch (error) {
-    return new RequestGetEmpresasVideos(error);
+    return false;
   }
 }
 
-module.exports.requestGetEmpresasVideo = requestGetEmpresasVideos;
+module.exports.requestGetEmpresasVideos = requestGetEmpresasVideos;

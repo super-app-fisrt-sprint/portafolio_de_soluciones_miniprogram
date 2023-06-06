@@ -1,5 +1,5 @@
-const EmpresasVideosDataSourceRemote = require('../dataSource/getEmpresasVideosDataSourceRemote');
-const empresasVideosDataSourceRemote = new EmpresasVideosDataSourceRemote();
+const GetEmpresasVideosDataSourceRemote = require('../dataSource/GetEmpresasVideosDataSourceRemote');
+const empresasVideosDataSourceRemote = new GetEmpresasVideosDataSourceRemote();
 
 module.exports = class EmpresasVideosRepository {
   static instance;

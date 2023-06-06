@@ -1,67 +1,98 @@
-const empresasVideoViewModel = require('../../../domain/empresasVideoViewModel');
+const empresasVideosViewModel = require('../../../domain/empresasVideosViewModel');
 
 Page({
   data: {
     solutions: [],
     urlTag: '/main/ui/assets/icons/solutionsPortafolio/',
     images: [
-      'administraciondetunegocio.png',
-      'ico_cloud.png',
-      'ico_internet.png',
-      'ico_iot.png',
-      'ico_minegocio.png',
-      'ico_movil.png',
-      'ico_tv.png'
+      'administraciondetunegocio.svg',
+      'ico_cloud.svg',
+      'ico_internet.svg',
+      'ico_iot.svg',
+      'ico_minegocio.svg',
+      'ico_movil.svg',
+      'ico_tv.svg',
+      'administracion_lan.svg',
+      'servicios_de_datos.svg',
+      'servicios_de_internet.svg',
+      'servicios_de_it.svg',
+      'servicios_iot.svg',
+      'servicios_moviles.svg'
     ],
     titleBarHeight: 0,
     statusBarHeight: 0,
-    showLoading: false
+    showLoading: false,
+    descriptionModalInfo: '',
+    showModalDescriptionInfo: false,
+    buttonModalDescriptionInfo: '',
+    functionModalDescriptionInfo: '',
   },
-  onLoad() {
+  async onLoad() {
     const {
       titleBarHeight,
       statusBarHeight,
     } = my.getSystemInfoSync();
     this.setData({
       titleBarHeight,
-      statusBarHeight,  
+      statusBarHeight,
     });
-    this.getAsyncInformation();
+    await this.getAsyncInformation();
   },
-  getAsyncInformation(){
+  async getAsyncInformation() {
     this.showLoading();
-    empresasVideoViewModel.requestGetEmpresasVideo()
-      .then(info => {
-        info.data.forEach(solution => {
+    let res = await empresasVideosViewModel.requestGetEmpresasVideos();
+    try {
+      if (res) {
+        res.data.forEach(solution => {
           let reference = solution.icono;
           let indexTag = reference.lastIndexOf('/');
-          let indeximg = this.data.images.indexOf(reference.substring(indexTag + 1));
-          if(indeximg != -1){
-            solution.icono = `${this.data.urlTag}${this.data.images[indeximg]}`;
+          let icoTag = reference.substring(indexTag + 1).replace('png', 'svg');
+          let strImg = this.findImage(icoTag);
+          if (strImg) {
+            solution.icono = `${this.data.urlTag}${strImg}`;
+            solution.link.forEach(hyper => {
+              let str = `${this.removeAccents(hyper.nombre.toLowerCase()).replaceAll(' ','_')}.svg`;
+              let strLink = this.findImage(str)
+              if (str === strLink) {
+                hyper.icoBtn = `${this.data.urlTag}${strLink}`
+              } else {
+                hyper.icoBtn = `${this.data.urlTag}${strImg}`
+              }
+            });
           }
         });
         this.setData({
-          solutions: info.data
+          solutions: res.data
         });
         this.hideLoading();
-      })
-      .catch(error => {
-        my.alert({
-          title: 'Error',
-          content: error.errorMessage,
-          buttonText: 'Aceptar'
+      } else {
+        this.setData({
+          descriptionModalInfo: 'Ocurrió un error en la respuesta del servidor. Por favor, vuelve a intentarlo más tarde.',
+          buttonModalDescriptionInfo: 'Cerrar',
+          functionModalDescriptionInfo: 'handleClose',
+          showModalDescriptionInfo: true
         });
         this.hideLoading();
+      }
+    } catch (error) {
+      this.setData({
+        descriptionModalInfo: 'Ocurrió un error en la respuesta del servidor. Por favor, vuelve a intentarlo más tarde.',
+        buttonModalDescriptionInfo: 'Cerrar',
+        functionModalDescriptionInfo: 'handleClose',
+        showModalDescriptionInfo: true
       });
+      this.hideLoading();
+    }
   },
-  onService(e){
+  onService(e) {
     my.navigateTo({
       url: `/main/ui/pages/adquirir-producto/adquirir-producto`
     });
   },
-  onSolution(e){
+  onSolution(e) {
+    let solutionId = e.currentTarget.dataset.index;
     my.navigateTo({
-      url: ``
+      url: `/main/ui/pages/solucion/solucion?solutions=${JSON.stringify(this.data.solutions)}&idSolution=${solutionId}`
     })
   },
   showLoading() {
@@ -73,5 +104,16 @@ Page({
     this.setData({
       showLoading: false
     });
+  },
+  handleClose() {
+    this.setData({
+      showModalDescriptionInfo: false
+    });
+  },
+  removeAccents(str) {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  },
+  findImage(icoTag) {
+    return this.data.images.find(item => item === icoTag);
   }
 });

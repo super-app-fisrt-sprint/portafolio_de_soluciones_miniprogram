@@ -1,4 +1,4 @@
-<view style="{{style}}" class="btn-arrow" onTap="onNav" data-item="{{ dataInfo }}">
+<view style="{{style}}" class="btn-arrow" onTap="onNav" data-set="{{ dataInfo }}">
 
   <view class="container-btn-arrow">
 

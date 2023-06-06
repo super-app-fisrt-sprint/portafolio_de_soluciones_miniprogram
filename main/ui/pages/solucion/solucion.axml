@@ -1,90 +1,324 @@
-<view class="container {{backgroundColor == true ? 'color-active': 'color-desactive'}}">
+<header-image image="/main/ui/assets/logo-claro-blanco.svg" style="height:{{titleBarHeight + statusBarHeight + 10}}px" />
 
-  <view class="section-container {{backgroundColor == true ? 'color-active': 'color-desactive'}}">
+<view class="container" style="padding-top: {{titleBarHeight + statusBarHeight + 25}}px;">
+  <view class="body">
+    <view class="title h1-style claro-gray font-w-700">
+      Portafolio de soluciones
+    </view>
 
-    <scroll-view
-      class="scroll-view-h"
-      scroll-x="{{true}}"
-      scroll-into-view="{{positionData}}"
-      scroll-with-animation="{{scrollAnimation}}"
-    >
+    <view class="body-tab">
+      <tabs items="{{dataSolutions}}" current="{{currentData}}" onChange="onChangeTab">
 
-      <block a:for="{{ dataSolutions }}" a:for-item="solution" a:key="*this">
-        <view class="section-scroll" id="{{solution.idVideo}}">
+        <swiper
+          class="swiper-content"
+          current="{{currentData}}"
+          autoplay="{{false}}"
+          vertical="{{false}}"
+          circular="{{false}}"
+          onChange="onSwipeChange"
+        >
+          <swiper-item
+            a:for="{{dataSolutions}}"
+            a:for-item="solution"
+            a:key="*this"
+            class="swiper-item"
+          >
 
-          <video
-            id="myVideo-{{solution.idVideo}}"
-            class="item-video"
-            src="{{video.src}}"
-            controls="{{video.showAllControls}}"
-            loop="{{video.isLooping}}"
-            muted="{{video.muteWhenPlaying}}"
-            show-fullscreen-btn="{{video.showFullScreenButton}}"
-            show-play-btn="{{video.showPlayButton}}"
-            show-center-play-btn="{{video.showCenterButton}}"
-            object-fit="{{video.objectFit}}"
-            autoplay="{{video.autoPlay}}"
-            direction="{{video.directionWhenFullScreen}}"
-            initial-time="{{video.initTime}}"
-            mobilenet-hint-type="{{video.mobilenetHintType}}"
-            onPlay="onPlay"
-            onPause="onPause"
-            onEnded="onEnded"
-            onError="onError"
-          />
+            <view class="content">
+              <block a:if="{{currentData === index}}">
 
-          <view class="item-section {{backgroundColor == false ? 'box-shadow': ''}}">
+                <block a:if="{{solution.title === 'Cloud'}}">
 
-            <scroll-view class="scroll-view-v" scroll-y="{{true}}">
-              <view class="section-description">
-                <view class="title">{{solution.titulo}}</view>
-                <view class="description">{{solution.texto}}</view>
-                <block a:for="{{ solution.link }}" a:for-item="link">
-                  <hiperlink-button
-                    id="{{index}}"
-                    stateImg="{{true}}"
-                    srcImg="/assets/icons/navigateNext.svg"
-                    colorImg="#16b6c9"
-                    sizeImg="25rpx"
-                    style="color: #16b6c9;"
-                    data="{{link.valor}}"
-                    onTap="onWebView"
-                  >
-                    {{link.nombre}}
-                  </hiperlink-button>
+                  <view class="video-container">
+                    <video
+                      id="myVideo-{{index}}"
+                      src="{{video.src}}"
+                      controls="{{video.showAllControls}}"
+                      loop="{{video.isLooping}}"
+                      muted="{{video.muteWhenPlaying}}"
+                      show-fullscreen-btn="{{video.showFullScreenButton}}"
+                      show-play-btn="{{video.showPlayButton}}"
+                      show-center-play-btn="{{video.showCenterButton}}"
+                      object-fit="{{video.objectFit}}"
+                      autoplay="{{video.autoPlay}}"
+                      direction="{{video.directionWhenFullScreen}}"
+                      initial-time="{{video.initTime}}"
+                      mobilenet-hint-type="{{video.mobilenetHintType}}"
+                      onPlay="onPlay"
+                      onPause="onPause"
+                      onEnded="onEnded"
+                      onError="onPlayError"
+                      onTimeUpdate="onTimeUpdate"
+                    />
+                  </view>
+
+                  <view class="container-solution">
+                    <view class="title-solution claro-blue font-w-700">
+                      {{solution.titulo}}
+                    </view>
+                    <view class="container-scroll claro-gray">
+                      {{solution.texto}}
+                    </view>
+                  </view>
+
                 </block>
-              </view>
-            </scroll-view>
 
-          </view>
+                <block a:if="{{solution.title === 'Móvil'}}">
 
-        </view>
-      </block>
+                  <view class="video-container">
+                    <video
+                      id="myVideo-{{index}}"
+                      src="{{video.src}}"
+                      controls="{{video.showAllControls}}"
+                      loop="{{video.isLooping}}"
+                      muted="{{video.muteWhenPlaying}}"
+                      show-fullscreen-btn="{{video.showFullScreenButton}}"
+                      show-play-btn="{{video.showPlayButton}}"
+                      show-center-play-btn="{{video.showCenterButton}}"
+                      object-fit="{{video.objectFit}}"
+                      autoplay="{{video.autoPlay}}"
+                      direction="{{video.directionWhenFullScreen}}"
+                      initial-time="{{video.initTime}}"
+                      mobilenet-hint-type="{{video.mobilenetHintType}}"
+                      onPlay="onPlay"
+                      onPause="onPause"
+                      onEnded="onEnded"
+                      onError="onPlayError"
+                      onTimeUpdate="onTimeUpdate"
+                    />
+                  </view>
 
-    </scroll-view>
+                  <view class="container-solution">
+                    <view class="title-solution claro-blue font-w-700">
+                      {{solution.titulo}}
+                    </view>
+                    <view class="container-scroll claro-gray">
+                      {{solution.texto}}
+                    </view>
+                  </view>
+
+                </block>
+
+                <block a:if="{{solution.title === 'Internet'}}">
+
+                  <view class="video-container">
+                    <video
+                      id="myVideo-{{index}}"
+                      src="{{video.src}}"
+                      controls="{{video.showAllControls}}"
+                      loop="{{video.isLooping}}"
+                      muted="{{video.muteWhenPlaying}}"
+                      show-fullscreen-btn="{{video.showFullScreenButton}}"
+                      show-play-btn="{{video.showPlayButton}}"
+                      show-center-play-btn="{{video.showCenterButton}}"
+                      object-fit="{{video.objectFit}}"
+                      autoplay="{{video.autoPlay}}"
+                      direction="{{video.directionWhenFullScreen}}"
+                      initial-time="{{video.initTime}}"
+                      mobilenet-hint-type="{{video.mobilenetHintType}}"
+                      onPlay="onPlay"
+                      onPause="onPause"
+                      onEnded="onEnded"
+                      onError="onPlayError"
+                      onTimeUpdate="onTimeUpdate"
+                    />
+                  </view>
+
+                  <view class="container-solution">
+                    <view class="title-solution claro-blue font-w-700">
+                      {{solution.titulo}}
+                    </view>
+                    <view class="container-scroll claro-gray">
+                      {{solution.texto}}
+                    </view>
+                  </view>
+
+                </block>
+
+                <block a:if="{{solution.title === 'TV'}}">
+
+                  <view class="video-container">
+                    <video
+                      id="myVideo-{{index}}"
+                      src="{{video.src}}"
+                      controls="{{video.showAllControls}}"
+                      loop="{{video.isLooping}}"
+                      muted="{{video.muteWhenPlaying}}"
+                      show-fullscreen-btn="{{video.showFullScreenButton}}"
+                      show-play-btn="{{video.showPlayButton}}"
+                      show-center-play-btn="{{video.showCenterButton}}"
+                      object-fit="{{video.objectFit}}"
+                      autoplay="{{video.autoPlay}}"
+                      direction="{{video.directionWhenFullScreen}}"
+                      initial-time="{{video.initTime}}"
+                      mobilenet-hint-type="{{video.mobilenetHintType}}"
+                      onPlay="onPlay"
+                      onPause="onPause"
+                      onEnded="onEnded"
+                      onError="onPlayError"
+                      onTimeUpdate="onTimeUpdate"
+                    />
+                  </view>
+
+                  <view class="container-solution">
+                    <view class="title-solution claro-blue font-w-700">
+                      {{solution.titulo}}
+                    </view>
+                    <view class="container-scroll claro-gray">
+                      {{solution.texto}}
+                    </view>
+                  </view>
+
+                </block>
+
+                <block a:if="{{solution.title === 'IoT'}}">
+
+                  <view class="video-container">
+                    <video
+                      id="myVideo-{{index}}"
+                      src="{{video.src}}"
+                      controls="{{video.showAllControls}}"
+                      loop="{{video.isLooping}}"
+                      muted="{{video.muteWhenPlaying}}"
+                      show-fullscreen-btn="{{video.showFullScreenButton}}"
+                      show-play-btn="{{video.showPlayButton}}"
+                      show-center-play-btn="{{video.showCenterButton}}"
+                      object-fit="{{video.objectFit}}"
+                      autoplay="{{video.autoPlay}}"
+                      direction="{{video.directionWhenFullScreen}}"
+                      initial-time="{{video.initTime}}"
+                      mobilenet-hint-type="{{video.mobilenetHintType}}"
+                      onPlay="onPlay"
+                      onPause="onPause"
+                      onEnded="onEnded"
+                      onError="onPlayError"
+                      onTimeUpdate="onTimeUpdate"
+                    />
+                  </view>
+
+                  <view class="container-solution">
+                    <view class="title-solution claro-blue font-w-700">
+                      {{solution.titulo}}
+                    </view>
+                    <view class="container-scroll claro-gray">
+                      {{solution.texto}}
+                    </view>
+                  </view>
+
+                </block>
+
+                <block a:if="{{solution.title === 'Mi negocio digital'}}">
+
+                  <view class="video-container">
+                    <video
+                      id="myVideo-{{index}}"
+                      src="{{video.src}}"
+                      controls="{{video.showAllControls}}"
+                      loop="{{video.isLooping}}"
+                      muted="{{video.muteWhenPlaying}}"
+                      show-fullscreen-btn="{{video.showFullScreenButton}}"
+                      show-play-btn="{{video.showPlayButton}}"
+                      show-center-play-btn="{{video.showCenterButton}}"
+                      object-fit="{{video.objectFit}}"
+                      autoplay="{{video.autoPlay}}"
+                      direction="{{video.directionWhenFullScreen}}"
+                      initial-time="{{video.initTime}}"
+                      mobilenet-hint-type="{{video.mobilenetHintType}}"
+                      onPlay="onPlay"
+                      onPause="onPause"
+                      onEnded="onEnded"
+                      onError="onPlayError"
+                      onTimeUpdate="onTimeUpdate"
+                    />
+                  </view>
+
+                  <view class="container-solution">
+                    <view class="title-solution claro-blue font-w-700">
+                      {{solution.titulo}}
+                    </view>
+                    <view class="container-scroll claro-gray">
+                      {{solution.texto}}
+                    </view>
+                  </view>
+
+                </block>
+
+                <block a:if="{{solution.title === 'Administra tu negocio'}}">
+
+                  <view class="video-container">
+                    <video
+                      id="myVideo-{{index}}"
+                      src="{{video.src}}"
+                      controls="{{video.showAllControls}}"
+                      loop="{{video.isLooping}}"
+                      muted="{{video.muteWhenPlaying}}"
+                      show-fullscreen-btn="{{video.showFullScreenButton}}"
+                      show-play-btn="{{video.showPlayButton}}"
+                      show-center-play-btn="{{video.showCenterButton}}"
+                      object-fit="{{video.objectFit}}"
+                      autoplay="{{video.autoPlay}}"
+                      direction="{{video.directionWhenFullScreen}}"
+                      initial-time="{{video.initTime}}"
+                      mobilenet-hint-type="{{video.mobilenetHintType}}"
+                      onPlay="onPlay"
+                      onPause="onPause"
+                      onEnded="onEnded"
+                      onError="onPlayError"
+                      onTimeUpdate="onTimeUpdate"
+                    />
+                  </view>
+
+                  <view class="container-solution">
+                    <view class="title-solution claro-blue font-w-700">
+                      {{solution.titulo}}
+                    </view>
+                    <view class="container-scroll claro-gray">
+                      {{solution.texto}}
+                    </view>
+                  </view>
+
+                </block>
+
+              </block>
+            </view>
+
+          </swiper-item>
+        </swiper>
+
+      </tabs>
+    </view>
 
   </view>
 
-  <view class="btns-container {{backgroundColor == true ? 'color-active': 'color-desactive'}}">
-    <view class="btns-central">
-      <generic-button onTap="onRedirect" stateImg="{{false}}">
-        Adquirir Servicio
-      </generic-button>
-    </view>
-    <view class="btns-movement">
-      <button
-        class="btn-before {{ stateBefore == true ? 'btn-active' : 'btn-desactive'}}"
-        onTap="onBefore"
-      >
-        <image mode="scaleToFill" src="/assets/icons/navigateBefore.svg" />
-      </button>
-      <button
-        class="btn-next {{ stateNext == true ? 'btn-active' : 'btn-desactive'}}"
-        onTap="onNext"
-      >
-        <image mode="scaleToFill" src="/assets/icons/navigateNext.svg" />
-      </button>
-    </view>
+  <view class="footer">
+    <button class="font-w-600" onTap="handleShowPopup">Conoce más</button>
   </view>
+
+  <popup
+    visible="{{scrollVisible}}"
+    animation="{{animation}}"
+    onClose="handlePopupClose"
+    position="bottom"
+  >
+    <view class="container-pop-up">
+      <view class="container-grip"></view>
+      <view class="h1-style font-w-700 claro-blue">Elige el tipo de servicio</view>
+      <view class="container-btns">
+        <block a:for="{{ linkSolutions }}" a:for-item="link" a:key="*this">
+          <arrow-button
+            dataInfo={{link}}
+            stateImg={{true}}
+            imgSrc={{link.icoBtn}}
+            iconArrowSrc="/main/ui/assets/icons/navigateNextBlue.svg"
+            style="font-weight: bold; "
+            onTap="onHyperLink"
+          >
+            {{link.nombre}}
+          </arrow-button>
+        </block>
+      </view>
+    </view>
+
+  </popup>
 
 </view>

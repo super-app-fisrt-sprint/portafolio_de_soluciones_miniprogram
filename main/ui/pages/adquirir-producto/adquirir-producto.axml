@@ -18,4 +18,5 @@ style="height:{{titleBarHeight + statusBarHeight + 10}}px"
   <view onTap="onWebView" class="container-web-view">
     <image class="image-clic" mode="widthFix" src="/main/ui/assets/form.png" />
   </view>
+  
 </view>
