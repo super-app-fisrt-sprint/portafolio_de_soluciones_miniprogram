@@ -1,4 +1,4 @@
-const empresasVideosViewModel = require('../../../domain/empresasVideosViewModel');
+const companiesVideosViewModel = require('../../../domain/companiesVideosViewModel.js');
 
 let app = getApp();
 
@@ -42,7 +42,7 @@ Page({
   },
   async getAsyncInformation() {
     this.showLoading();
-    let res = await empresasVideosViewModel.requestGetEmpresasVideos();
+    let res = await companiesVideosViewModel.requestGetComapaniesVideos();
     try {
       if (res) {
         res.data.forEach(solution => {

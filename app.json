@@ -1,10 +1,10 @@
 {
   "subPackageBuildType": "shared",
   "pages": [
-    "main/ui/pages/soluciones/soluciones",
-    "main/ui/pages/solucion/solucion",
-    "main/ui/pages/adquirir-producto/adquirir-producto",
-    "main/ui/pages/web-view/web-view"
+    "main/ui/pages/solutions/solutions",
+    "main/ui/pages/solution/solution",
+    "main/ui/pages/purchaseProduct/purchaseProduct",
+    "main/ui/pages/webView/webView"
   ],
   "window": {
     "defaultTitle": "",

@@ -1,6 +1,6 @@
-module.exports.getEmpresasVideos = getEmpresasVideos;
+module.exports.getCompaniesVideos = getCompaniesVideos;
 
-function getEmpresasVideos(url, headers) {
+function getCompaniesVideos(url, headers) {
   return new Promise((resolve, reject) => {
     my.request({
       url: url,

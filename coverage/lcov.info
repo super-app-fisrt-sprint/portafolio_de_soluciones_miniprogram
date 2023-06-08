@@ -1,9 +1,9 @@
 TN:
-SF:main\domain\empresasVideosViewModel.js
-FN:4,requestGetEmpresasVideos
+SF:main\domain\companiesVideosViewModel.js
+FN:4,requestGetComapaniesVideos
 FNF:1
 FNH:1
-FNDA:3,requestGetEmpresasVideos
+FNDA:3,requestGetComapaniesVideos
 DA:1,1
 DA:2,1
 DA:5,3
