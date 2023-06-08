@@ -1,5 +1,7 @@
 const empresasVideosViewModel = require('../../../domain/empresasVideosViewModel');
 
+let app = getApp();
+
 Page({
   data: {
     solutions: [],
