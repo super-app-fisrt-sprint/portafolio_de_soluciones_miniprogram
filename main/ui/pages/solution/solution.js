@@ -34,9 +34,6 @@ Page({
   },
   setInformation(solutions, idSolution) {
     let solutionsMap = JSON.parse(solutions);
-    my.showLoading({
-      content: "Loading Data..."
-    });
     solutionsMap.forEach(solution => {
       solution['title'] = solution.nombre;
       delete solution.nombre;
@@ -45,7 +42,6 @@ Page({
       dataSolutions: solutionsMap,
       currentData: Number(idSolution)
     });
-    my.hideLoading({});
   },
   onPlay(e) {
     this.setData({
@@ -64,17 +60,6 @@ Page({
   },
   onError(e) {
     console.log(e);
-  },
-  onRedirect(e) {
-    my.navigateTo({
-      url: "/pages/adquirir-producto/adquirir-producto"
-    });
-  },
-  onWebView(e) {
-    const url = e.currentTarget.dataset.set;
-    my.navigateTo({
-      url: `/pages/web-view/web-view?url=${url}`
-    });
   },
   onSwipeChange(e) {
     this.setData({
@@ -103,7 +88,7 @@ Page({
   onHyperLink(e){
     let link = e.currentTarget.dataset.set.valor
     my.navigateTo({
-      url: `/main/ui/pages/web-view/web-view?url=${link}`
+      url: `/main/ui/pages/webView/webView?url=${link}`
     });
   }
 });

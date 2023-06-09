@@ -1,4 +1,4 @@
-<header-image image="/main/ui/assets/logo-claro-blanco.svg" style="height:{{titleBarHeight + statusBarHeight + 10}}px" />
+<header-image image="/main/ui/assets/logo-claro-blanco.svg" style="height:{{titleBarHeight + statusBarHeight + 15}}px" />
 
 <view class="container" style="padding-top: {{titleBarHeight + statusBarHeight + 25}}px;">
   <view class="body">

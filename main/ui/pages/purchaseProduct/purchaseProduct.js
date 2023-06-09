@@ -18,15 +18,13 @@ Page({
       statusBarHeight,
     });
   },
-  onUnload(){
-
-  },
+  onUnload(){},
   onMakePhoneCall(e){
     my.makePhoneCall({ number: this.data.number });
   },
   onWebView(e){
     my.navigateTo({
-      url: `/main/ui/pages/web-view/web-view?url=${this.data.webView}`
+      url: `/main/ui/pages/webView/webView?url=${this.data.webView}`
     });
   }
 });

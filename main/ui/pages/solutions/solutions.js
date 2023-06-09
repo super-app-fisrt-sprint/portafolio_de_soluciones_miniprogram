@@ -88,13 +88,13 @@ Page({
   },
   onService(e) {
     my.navigateTo({
-      url: `/main/ui/pages/adquirir-producto/adquirir-producto`
+      url: `/main/ui/pages/purchaseProduct/purchaseProduct`
     });
   },
   onSolution(e) {
     let solutionId = e.currentTarget.dataset.index;
     my.navigateTo({
-      url: `/main/ui/pages/solucion/solucion?solutions=${JSON.stringify(this.data.solutions)}&idSolution=${solutionId}`
+      url: `/main/ui/pages/solution/solution?solutions=${JSON.stringify(this.data.solutions)}&idSolution=${solutionId}`
     })
   },
   showLoading() {
