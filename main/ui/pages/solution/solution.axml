@@ -32,7 +32,7 @@
                   <view class="video-container">
                     <video
                       id="myVideo-{{index}}"
-                      src="{{video.src}}"
+                      src="https://www.miclaroapp.com.co/archivos/cloud.mp4"
                       controls="{{video.showAllControls}}"
                       loop="{{video.isLooping}}"
                       muted="{{video.muteWhenPlaying}}"
@@ -68,7 +68,7 @@
                   <view class="video-container">
                     <video
                       id="myVideo-{{index}}"
-                      src="{{video.src}}"
+                      src="https://www.miclaroapp.com.co/archivos/movil.mp4"
                       controls="{{video.showAllControls}}"
                       loop="{{video.isLooping}}"
                       muted="{{video.muteWhenPlaying}}"
@@ -104,7 +104,7 @@
                   <view class="video-container">
                     <video
                       id="myVideo-{{index}}"
-                      src="{{video.src}}"
+                      src="https://www.miclaroapp.com.co/archivos/internet.mp4"
                       controls="{{video.showAllControls}}"
                       loop="{{video.isLooping}}"
                       muted="{{video.muteWhenPlaying}}"
@@ -140,7 +140,7 @@
                   <view class="video-container">
                     <video
                       id="myVideo-{{index}}"
-                      src="{{video.src}}"
+                      src="https://www.miclaroapp.com.co/archivos/tv.mp4"
                       controls="{{video.showAllControls}}"
                       loop="{{video.isLooping}}"
                       muted="{{video.muteWhenPlaying}}"
@@ -176,7 +176,7 @@
                   <view class="video-container">
                     <video
                       id="myVideo-{{index}}"
-                      src="{{video.src}}"
+                      src="https://www.miclaroapp.com.co/archivos/IoT.mp4"
                       controls="{{video.showAllControls}}"
                       loop="{{video.isLooping}}"
                       muted="{{video.muteWhenPlaying}}"
@@ -212,7 +212,7 @@
                   <view class="video-container">
                     <video
                       id="myVideo-{{index}}"
-                      src="{{video.src}}"
+                      src="https://miclaroapp.com.co/archivos/minegocio.mp4"
                       controls="{{video.showAllControls}}"
                       loop="{{video.isLooping}}"
                       muted="{{video.muteWhenPlaying}}"
@@ -248,7 +248,7 @@
                   <view class="video-container">
                     <video
                       id="myVideo-{{index}}"
-                      src="{{video.src}}"
+                      src="https://www.miclaroapp.com.co/archivos/CLARO2.mp4"
                       controls="{{video.showAllControls}}"
                       loop="{{video.isLooping}}"
                       muted="{{video.muteWhenPlaying}}"
