@@ -1,0 +1,35 @@
+<header-image image="/main/ui/assets/logo-claro-blanco.svg" style="height:{{titleBarHeight + statusBarHeight + 10}}px" />
+
+<view class="container" style="padding-top: {{titleBarHeight + statusBarHeight + 25}}px">
+  <view class="body">
+    <view class="title h1-style claro-gray font-w-700">
+      Portafolio de soluciones
+    </view>
+    <view class="description h3-style">
+      Claro es tu aliado en soluciones empresariales
+    </view>
+
+    <view class="container-solutions">
+      <block a:for="{{ solutions }}" a:for-item="solution" a:key="*this">
+        <view onTap="onSolution" class="item" data-set="{{ solution }}" data-index="{{index}}">
+          <image mode="scaleToFill" src="{{solution.icono}}" />
+          <text class="h4-style">{{solution.nombre}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view class="footer">
+    <button onTap="onService" class="font-w-600">Adquirir Servicio</button>
+  </view>
+
+  <modal-accept
+    content="{{descriptionModalInfo}}"
+    visible="{{showModalDescriptionInfo}}"
+    primaryButtonText="{{buttonModalDescriptionInfo}}"
+    onPrimaryButtonTap="{{functionModalDescriptionInfo}}"
+    onClose="handleClose"
+  />
+
+  <loading-component a:if="{{showLoading}}"></loading-component>
+</view>

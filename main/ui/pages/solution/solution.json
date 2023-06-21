@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "header-image": "/main/ui/components/headerImage/headerImage",
+    "loading-component": "/main/ui/components/loading-component/loading-component",
+    "hiperlink-button": "/main/ui/components/hyperlink-button/hyperlink-button",
+    "generic-button": "/main/ui/components/generic-button/generic-button",
+    "tabs": "antd-mini/es/Tabs/index",
+    "popup": "antd-mini/es/Popup/index",
+    "arrow-button": "/main/ui/components/arrow-button/arrow-button"
+  },
+  "styleIsolation": "apply-shared"
+}

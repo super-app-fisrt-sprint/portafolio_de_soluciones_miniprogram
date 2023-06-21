@@ -1,14 +1,17 @@
 {
   "subPackageBuildType": "shared",
   "pages": [
-    "pages/soluciones/soluciones",
-    "pages/solucion/solucion",
-    "pages/web-view/web-view"
+    "main/ui/pages/solutions/solutions",
+    "main/ui/pages/solution/solution",
+    "main/ui/pages/purchaseProduct/purchaseProduct",
+    "main/ui/pages/webView/webView"
   ],
   "window": {
-    "defaultTitle": "Mi Claro",
+    "defaultTitle": "",
     "titleBarColor": "#121D24",
     "gestureBack": "YES",
+    "transparentTitle": "always",
+    "responsive": true,
     "showTitleLoading": "YES"
   }
 }

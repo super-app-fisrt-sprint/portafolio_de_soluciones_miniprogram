@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "header-image": "/main/ui/components/headerImage/headerImage",
+    "loading-component": "/main/ui/components/loading-component/loading-component",
+    "modal-accept": "/main/ui/components/modal-accept/modal-accept"
+  },
+  "styleIsolation": "apply-shared"
+}

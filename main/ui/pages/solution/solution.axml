@@ -1,0 +1,324 @@
+<header-image image="/main/ui/assets/logo-claro-blanco.svg" style="height:{{titleBarHeight + statusBarHeight + 15}}px" />
+
+<view class="container" style="padding-top: {{titleBarHeight + statusBarHeight + 25}}px;">
+  <view class="body">
+    <view class="title h1-style claro-gray font-w-700">
+      Portafolio de soluciones
+    </view>
+
+    <view class="body-tab">
+      <tabs items="{{dataSolutions}}" current="{{currentData}}" onChange="onChangeTab">
+
+        <swiper
+          class="swiper-content"
+          current="{{currentData}}"
+          autoplay="{{false}}"
+          vertical="{{false}}"
+          circular="{{false}}"
+          onChange="onSwipeChange"
+        >
+          <swiper-item
+            a:for="{{dataSolutions}}"
+            a:for-item="solution"
+            a:key="*this"
+            class="swiper-item"
+          >
+
+            <view class="content">
+              <block a:if="{{currentData === index}}">
+
+                <block a:if="{{solution.title === 'Cloud'}}">
+
+                  <view class="video-container">
+                    <video
+                      id="myVideo-{{index}}"
+                      src="https://www.miclaroapp.com.co/archivos/cloud.mp4"
+                      controls="{{video.showAllControls}}"
+                      loop="{{video.isLooping}}"
+                      muted="{{video.muteWhenPlaying}}"
+                      show-fullscreen-btn="{{video.showFullScreenButton}}"
+                      show-play-btn="{{video.showPlayButton}}"
+                      show-center-play-btn="{{video.showCenterButton}}"
+                      object-fit="{{video.objectFit}}"
+                      autoplay="{{video.autoPlay}}"
+                      direction="{{video.directionWhenFullScreen}}"
+                      initial-time="{{video.initTime}}"
+                      mobilenet-hint-type="{{video.mobilenetHintType}}"
+                      onPlay="onPlay"
+                      onPause="onPause"
+                      onEnded="onEnded"
+                      onError="onPlayError"
+                      onTimeUpdate="onTimeUpdate"
+                    />
+                  </view>
+
+                  <view class="container-solution">
+                    <view class="title-solution claro-blue font-w-700">
+                      {{solution.titulo}}
+                    </view>
+                    <view class="container-scroll claro-gray">
+                      {{solution.texto}}
+                    </view>
+                  </view>
+
+                </block>
+
+                <block a:if="{{solution.title === 'Móvil'}}">
+
+                  <view class="video-container">
+                    <video
+                      id="myVideo-{{index}}"
+                      src="https://www.miclaroapp.com.co/archivos/movil.mp4"
+                      controls="{{video.showAllControls}}"
+                      loop="{{video.isLooping}}"
+                      muted="{{video.muteWhenPlaying}}"
+                      show-fullscreen-btn="{{video.showFullScreenButton}}"
+                      show-play-btn="{{video.showPlayButton}}"
+                      show-center-play-btn="{{video.showCenterButton}}"
+                      object-fit="{{video.objectFit}}"
+                      autoplay="{{video.autoPlay}}"
+                      direction="{{video.directionWhenFullScreen}}"
+                      initial-time="{{video.initTime}}"
+                      mobilenet-hint-type="{{video.mobilenetHintType}}"
+                      onPlay="onPlay"
+                      onPause="onPause"
+                      onEnded="onEnded"
+                      onError="onPlayError"
+                      onTimeUpdate="onTimeUpdate"
+                    />
+                  </view>
+
+                  <view class="container-solution">
+                    <view class="title-solution claro-blue font-w-700">
+                      {{solution.titulo}}
+                    </view>
+                    <view class="container-scroll claro-gray">
+                      {{solution.texto}}
+                    </view>
+                  </view>
+
+                </block>
+
+                <block a:if="{{solution.title === 'Internet'}}">
+
+                  <view class="video-container">
+                    <video
+                      id="myVideo-{{index}}"
+                      src="https://www.miclaroapp.com.co/archivos/internet.mp4"
+                      controls="{{video.showAllControls}}"
+                      loop="{{video.isLooping}}"
+                      muted="{{video.muteWhenPlaying}}"
+                      show-fullscreen-btn="{{video.showFullScreenButton}}"
+                      show-play-btn="{{video.showPlayButton}}"
+                      show-center-play-btn="{{video.showCenterButton}}"
+                      object-fit="{{video.objectFit}}"
+                      autoplay="{{video.autoPlay}}"
+                      direction="{{video.directionWhenFullScreen}}"
+                      initial-time="{{video.initTime}}"
+                      mobilenet-hint-type="{{video.mobilenetHintType}}"
+                      onPlay="onPlay"
+                      onPause="onPause"
+                      onEnded="onEnded"
+                      onError="onPlayError"
+                      onTimeUpdate="onTimeUpdate"
+                    />
+                  </view>
+
+                  <view class="container-solution">
+                    <view class="title-solution claro-blue font-w-700">
+                      {{solution.titulo}}
+                    </view>
+                    <view class="container-scroll claro-gray">
+                      {{solution.texto}}
+                    </view>
+                  </view>
+
+                </block>
+
+                <block a:if="{{solution.title === 'TV'}}">
+
+                  <view class="video-container">
+                    <video
+                      id="myVideo-{{index}}"
+                      src="https://www.miclaroapp.com.co/archivos/tv.mp4"
+                      controls="{{video.showAllControls}}"
+                      loop="{{video.isLooping}}"
+                      muted="{{video.muteWhenPlaying}}"
+                      show-fullscreen-btn="{{video.showFullScreenButton}}"
+                      show-play-btn="{{video.showPlayButton}}"
+                      show-center-play-btn="{{video.showCenterButton}}"
+                      object-fit="{{video.objectFit}}"
+                      autoplay="{{video.autoPlay}}"
+                      direction="{{video.directionWhenFullScreen}}"
+                      initial-time="{{video.initTime}}"
+                      mobilenet-hint-type="{{video.mobilenetHintType}}"
+                      onPlay="onPlay"
+                      onPause="onPause"
+                      onEnded="onEnded"
+                      onError="onPlayError"
+                      onTimeUpdate="onTimeUpdate"
+                    />
+                  </view>
+
+                  <view class="container-solution">
+                    <view class="title-solution claro-blue font-w-700">
+                      {{solution.titulo}}
+                    </view>
+                    <view class="container-scroll claro-gray">
+                      {{solution.texto}}
+                    </view>
+                  </view>
+
+                </block>
+
+                <block a:if="{{solution.title === 'IoT'}}">
+
+                  <view class="video-container">
+                    <video
+                      id="myVideo-{{index}}"
+                      src="https://www.miclaroapp.com.co/archivos/IoT.mp4"
+                      controls="{{video.showAllControls}}"
+                      loop="{{video.isLooping}}"
+                      muted="{{video.muteWhenPlaying}}"
+                      show-fullscreen-btn="{{video.showFullScreenButton}}"
+                      show-play-btn="{{video.showPlayButton}}"
+                      show-center-play-btn="{{video.showCenterButton}}"
+                      object-fit="{{video.objectFit}}"
+                      autoplay="{{video.autoPlay}}"
+                      direction="{{video.directionWhenFullScreen}}"
+                      initial-time="{{video.initTime}}"
+                      mobilenet-hint-type="{{video.mobilenetHintType}}"
+                      onPlay="onPlay"
+                      onPause="onPause"
+                      onEnded="onEnded"
+                      onError="onPlayError"
+                      onTimeUpdate="onTimeUpdate"
+                    />
+                  </view>
+
+                  <view class="container-solution">
+                    <view class="title-solution claro-blue font-w-700">
+                      {{solution.titulo}}
+                    </view>
+                    <view class="container-scroll claro-gray">
+                      {{solution.texto}}
+                    </view>
+                  </view>
+
+                </block>
+
+                <block a:if="{{solution.title === 'Mi negocio digital'}}">
+
+                  <view class="video-container">
+                    <video
+                      id="myVideo-{{index}}"
+                      src="https://miclaroapp.com.co/archivos/minegocio.mp4"
+                      controls="{{video.showAllControls}}"
+                      loop="{{video.isLooping}}"
+                      muted="{{video.muteWhenPlaying}}"
+                      show-fullscreen-btn="{{video.showFullScreenButton}}"
+                      show-play-btn="{{video.showPlayButton}}"
+                      show-center-play-btn="{{video.showCenterButton}}"
+                      object-fit="{{video.objectFit}}"
+                      autoplay="{{video.autoPlay}}"
+                      direction="{{video.directionWhenFullScreen}}"
+                      initial-time="{{video.initTime}}"
+                      mobilenet-hint-type="{{video.mobilenetHintType}}"
+                      onPlay="onPlay"
+                      onPause="onPause"
+                      onEnded="onEnded"
+                      onError="onPlayError"
+                      onTimeUpdate="onTimeUpdate"
+                    />
+                  </view>
+
+                  <view class="container-solution">
+                    <view class="title-solution claro-blue font-w-700">
+                      {{solution.titulo}}
+                    </view>
+                    <view class="container-scroll claro-gray">
+                      {{solution.texto}}
+                    </view>
+                  </view>
+
+                </block>
+
+                <block a:if="{{solution.title === 'Administra tu negocio'}}">
+
+                  <view class="video-container">
+                    <video
+                      id="myVideo-{{index}}"
+                      src="https://www.miclaroapp.com.co/archivos/CLARO2.mp4"
+                      controls="{{video.showAllControls}}"
+                      loop="{{video.isLooping}}"
+                      muted="{{video.muteWhenPlaying}}"
+                      show-fullscreen-btn="{{video.showFullScreenButton}}"
+                      show-play-btn="{{video.showPlayButton}}"
+                      show-center-play-btn="{{video.showCenterButton}}"
+                      object-fit="{{video.objectFit}}"
+                      autoplay="{{video.autoPlay}}"
+                      direction="{{video.directionWhenFullScreen}}"
+                      initial-time="{{video.initTime}}"
+                      mobilenet-hint-type="{{video.mobilenetHintType}}"
+                      onPlay="onPlay"
+                      onPause="onPause"
+                      onEnded="onEnded"
+                      onError="onPlayError"
+                      onTimeUpdate="onTimeUpdate"
+                    />
+                  </view>
+
+                  <view class="container-solution">
+                    <view class="title-solution claro-blue font-w-700">
+                      {{solution.titulo}}
+                    </view>
+                    <view class="container-scroll claro-gray">
+                      {{solution.texto}}
+                    </view>
+                  </view>
+
+                </block>
+
+              </block>
+            </view>
+
+          </swiper-item>
+        </swiper>
+
+      </tabs>
+    </view>
+
+  </view>
+
+  <view class="footer">
+    <button class="font-w-600" onTap="handleShowPopup">Conoce más</button>
+  </view>
+
+  <popup
+    visible="{{scrollVisible}}"
+    animation="{{animation}}"
+    onClose="handlePopupClose"
+    position="bottom"
+  >
+    <view class="container-pop-up">
+      <view class="container-grip"></view>
+      <view class="h1-style font-w-700 claro-blue">Elige el tipo de servicio</view>
+      <view class="container-btns">
+        <block a:for="{{ linkSolutions }}" a:for-item="link" a:key="*this">
+          <arrow-button
+            dataInfo={{link}}
+            stateImg={{true}}
+            imgSrc={{link.icoBtn}}
+            iconArrowSrc="/main/ui/assets/icons/navigateNextBlue.svg"
+            style="font-weight: bold"
+            onTap="onHyperLink"
+          >
+            {{link.nombre}}
+          </arrow-button>
+        </block>
+      </view>
+    </view>
+
+  </popup>
+
+</view>
