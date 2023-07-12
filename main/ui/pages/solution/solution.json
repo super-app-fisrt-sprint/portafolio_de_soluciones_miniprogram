@@ -7,6 +7,5 @@
     "tabs": "antd-mini/es/Tabs/index",
     "popup": "antd-mini/es/Popup/index",
     "arrow-button": "/main/ui/components/arrow-button/arrow-button"
-  },
-  "styleIsolation": "apply-shared"
+  }
 }

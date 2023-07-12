@@ -1,9 +1,6 @@
 <view class="background">
   <view class="loading-container">
-    <view>
-      <image class="image-claro" mode="scaleToFill" src="/main/ui/assets/claro.png" />
-    </view>
-    <text class="loading-text">Cargando...</text>
     <image id="loading-img" class="loading-img" src="{{loadingImgSrc}}" mode="aspectFit" />
+    <text class="loading-text">Espera un momento</text>
   </view>
 </view>

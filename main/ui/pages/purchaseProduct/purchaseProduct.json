@@ -2,6 +2,5 @@
   "usingComponents": {
     "header-image": "/main/ui/components/headerImage/headerImage",
     "generic-button": "/main/ui/components/generic-button/generic-button"
-  },
-  "styleIsolation": "apply-shared"
+  }
 }

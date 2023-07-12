@@ -1,4 +1,0 @@
-<view class="button claro-red icon {{size}}" onTap="handleTap">
-  <image class="button-icon" mode="scaleToFill" src="{{iconUrl}}" />
-  <text class="button-text h4">{{text}}</text>
-</view>

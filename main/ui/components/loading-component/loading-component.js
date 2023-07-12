@@ -1,6 +1,6 @@
 Component({
   data: {
-    loadingImgSrc: "https://tienda.claro.com.do/images/loading.gif",
+    loadingImgSrc: "https://www2.claro.com.co/portal/co/img/loader-claro.gif",
     showLoading: true
   },
   methods: {
@@ -8,7 +8,7 @@ Component({
       const that = this;
       my.createSelectorQuery()
         .select("#loading-img")
-        .exec((res) => {
+        .exec(res => {
           that.setData({
             loadingImg: res[0]
           });

@@ -1,20 +1,11 @@
-.background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  backdrop-filter: blur(2px);
-}
 
 .loading-container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-border-radius: 5px;
-  width: 80%;
-  height: 180px;
+  width: 100%;
+  height: 100%;
   background-color: #ffffff;
   z-index: 999;
   display: flex;
@@ -24,19 +15,14 @@ border-radius: 5px;
 }
 
 .loading-img {
-  margin-top: 20px;
-  width: 45px;
-  height: 45px;
+  margin-top: -30%;
+  width: 220rpx;
+  height: 220rpx;
 }
 
 .loading-text {
-  font-size: 15px;
-  color: #666666;
-  margin-top: 30px;
-}
-
-.image-claro {
-  margin-top: 10px;
-  height: 30px;
-  width: 90px;
+  font-weight: bold;
+  font-size: 50rpx;
+  color: #E03224;
+  margin-top: 50rpx;
 }
